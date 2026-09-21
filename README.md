@@ -3,6 +3,25 @@ title: Hocbigg - Architecture
 description: Path to a free self-taught education in Architecture.
 ---
 
+## Introduction
+
+Architecture is the synthesis of spatial design, cultural history, and physical engineering. It is the discipline concerned with how human beings organize, construct, and experience three-dimensional space — from the intimate scale of a room to the civic scale of a public institution. Studying architecture independently sharpens visual literacy and spatial reasoning, giving you the tools to understand why the built environment looks the way it does, how buildings stand up, and how physical form influences human behavior.
+
+This curriculum is designed for absolute beginners with no prior background in design, drafting, or structural engineering. It requires no specialized software, studio access, or university enrollment. High school-level geometry and basic physical intuition are sufficient; the technical resources here prioritize conceptual clarity, visual diagrams, and physical behavior over dense mathematical derivation.
+
+The curriculum is organized into six foundational subjects arranged in two complementary phases:
+
+- **Visual and Conceptual Foundations:** Begin with *Architectural Design Fundamentals* and *Architectural Representation and Drawing*. These two subjects should ideally be studied together. The former establishes the spatial vocabulary of the discipline — form, proportion, axes, datum, and hierarchy — while the latter provides the drawing conventions (plans, sections, elevations, and axonometric projections) necessary to articulate and analyze those ideas on paper.
+- **Precedent and Context:** Move to *Architectural History and Survey* once you have a working grasp of architectural drawing. Studying historical precedents through the lens of architectural drawings allows you to analyze buildings as structural and spatial solutions to cultural, political, and material constraints rather than merely memorizing stylistic periods.
+- **Physical and Technical Realization:** Progress through the technical subjects in sequential order. Begin with *Structures* to understand how loads, tension, compression, and moments resolve through building forms. Follow this with *Building Construction and Materials*, where you will study how those structural forces are physically realized through concrete, steel, wood, and masonry assemblies. Conclude with *Environmental Systems*, which examines how passive orientation, daylighting, heat transfer, and acoustics govern interior comfort and energy performance.
+
+This page focuses strictly on the foundational core — the shared conceptual, graphic, and technical knowledge base expected of any undergraduate architectural student. It does not attempt to cover specialized professional tracks, specific CAD/BIM software tutorials, or legal licensing requirements.
+
+Once you have established this foundational grounding, you can branch out depending on your goals:
+
+- Put theory into practice by producing physical models, technical drawing sets, and analytical drawings using the step-by-step guides in [Projects](projects.md).
+- Explore specialized domains — such as computational design, facade engineering, mass timber, or urban housing — in [Advanced Topics](advanced_topics.md).
+
 ## Curriculum
 
 ### Architectural Design Fundamentals

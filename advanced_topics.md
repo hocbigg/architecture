@@ -1,7 +1,5 @@
 # Architecture Advanced Topics
 
-## Track Index
-
 Learners are expected to select one or two tracks aligned with their specific design, technical, or professional goals — completing every track is not required.
 
 - **Computational Design and Digital Fabrication** — Algorithmic form-finding, shape grammars, parametric logic, and robotic manufacturing processes.
