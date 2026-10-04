@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>Architecture Advanced Topics</title>
+  <meta name="description" content="Architecture Advanced Topics curriculum by hocbigg.">
+  <meta name="author" content="hocbigg">
+
+  <link rel="canonical" href="https://hocbigg.github.io/architecture/advanced_topics.html">
+  <meta property="og:title" content="Architecture Advanced Topics">
+  <meta property="og:description" content="Architecture Advanced Topics curriculum by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/architecture/advanced_topics.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+
+  <style>
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: 60rem;
+  padding: 0 1rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Cú pháp hiện đại thay thế cho word-wrap */
+  overflow-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  transform: translateY(-150%);
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:has(img) {
+  text-decoration: none;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header .page-subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-header img {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  margin-inline: 0;
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/architecture/">Architecture</a></li>
+      <li><a href="/architecture/advanced_topics.html">Advanced Topics</a></li>
+      <li><a href="/architecture/projects.html">Projects</a></li>
+      <li><a href="https://github.com/hocbigg/architecture" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
+
+<h1 id="architecture-advanced-topics">Architecture Advanced Topics</h1>
+<p>Learners are expected to select one or two tracks aligned with their specific design, technical, or professional goals — completing every track is not required.</p>
+<ul>
+<li><strong>Computational Design and Digital Fabrication</strong> — Algorithmic form-finding, shape grammars, parametric logic, and robotic manufacturing processes.</li>
+<li><strong>Sustainable and High-Performance Building</strong> — Net-zero energy design, mass timber construction, circular material loops, and schematic decarbonization.</li>
+<li><strong>Urban Design and Housing</strong> — City-scale spatial analysis, urban morphology, collective housing typologies, and public realm design.</li>
+<li><strong>Historic Preservation and Adaptive Reuse</strong> — Conservation philosophy, federal rehabilitation standards, building pathology, and architectural conversion strategies.</li>
+<li><strong>Advanced Building Envelope and Structural Systems</strong> — High-rise lateral systems, long-span structural morphology, facade engineering, and exterior detailing.</li>
+</ul>
+<h2 id="computational-design-and-digital-fabrication">Computational Design and Digital Fabrication</h2>
+<p>Computational methods, parametric modeling systems, and digital manufacturing technologies that transform generative design into materialized architecture.</p>
+<p>Shape Grammars and Generative Theory: <a href="https://ocw.mit.edu/courses/4-540-introduction-to-shape-grammars-i-fall-2018" target="_blank" rel="noopener noreferrer">Introduction to Shape Grammars I (MIT OpenCourseWare)</a> - Teaches visual computation and rule-based formal generation, establishing how geometric rules drive emergent design systems.</p>
+<p>Parametric Modeling and Associative Logic: <a href="https://books.google.com/books?isbn=9780415779876" target="_blank" rel="noopener noreferrer">Elements of Parametric Design (Robert Woodbury)</a> - Establishes the core thinking patterns, data flow dependencies, and geometric controllers required to build complex parametric models.</p>
+<p>Digital Fabrication and Prototyping: <a href="https://ocw.mit.edu/courses/4-510-digital-design-fabrication-fall-2008" target="_blank" rel="noopener noreferrer">Digital Design Fabrication (MIT OpenCourseWare)</a> - Connects digital geometric models directly to computer-controlled production tools including CNC milling, 3D printing, and laser cutting.</p>
+<p>Robotic Construction and Digital Materiality: <a href="https://books.google.com/books?isbn=9783906027371" target="_blank" rel="noopener noreferrer">The Robotic Touch: How Robots Change Architecture (Fabio Gramazio, Matthias Kohler, and Jan Willmann)</a> - Documents advanced research in multi-axis robotic fabrication, additive material placement, and the architectural tectonics of automated construction.</p>
+<h2 id="sustainable-and-high-performance-building">Sustainable and High-Performance Building</h2>
+<p>Advanced methodologies for designing carbon-neutral, energy-positive, and resource-circular architecture across full building lifecycles.</p>
+<p>Net-Zero Energy Climate Concepts: <a href="https://ocw.tudelft.nl/courses/zero-energy-design-an-approach-to-make-your-building-sustainable/" target="_blank" rel="noopener noreferrer">Zero-Energy Design: An Approach to Make Your Building Sustainable (TU Delft OpenCourseWare)</a> - Teaches a stepped approach to achieving net-zero energy performance through climate analysis, passive envelope optimization, and active system integration.</p>
+<p>Mass Timber and Carbon Sequestration: <a href="https://www.edx.org/learn/architecture/delft-university-of-technology-building-with-timber" target="_blank" rel="noopener noreferrer">Sustainable Building with Timber (DelftX via edX)</a> - Covers modern engineered timber systems, life-cycle carbon accounting, prefabricated assemblies, and structural joinery for tall timber buildings.</p>
+<p>Circular Economy and Material Loops: <a href="https://ocw.tudelft.nl/courses/circular-economy-for-a-sustainable-built-environment/" target="_blank" rel="noopener noreferrer">Circular Economy for a Sustainable Built Environment (TU Delft OpenCourseWare)</a> - Focuses on closed-loop resource management, design for disassembly, material passports, and circularity across materials, buildings, and urban regions.</p>
+<p>Schematic Decarbonization and System Sizing: <a href="https://books.google.com/books?isbn=9781032584362" target="_blank" rel="noopener noreferrer">The Green Studio Handbook: Environmental Strategies for Schematic Design (Alison G. Kwok and Walter T. Grondzik)</a> - Provides practical rules of thumb, sizing calculations, and integration protocols for over 40 active and passive environmental technologies during early-stage design.</p>
+<h2 id="urban-design-and-housing">Urban Design and Housing</h2>
+<p>Spatial analysis, urban form development, and inclusive housing typologies addressing social and environmental density.</p>
+<p>Urban Development and Policy: <a href="https://ocw.mit.edu/courses/11-301j-introduction-to-urban-design-and-development-fall-2016" target="_blank" rel="noopener noreferrer">Introduction to Urban Design and Development (MIT OpenCourseWare)</a> - Analyzes the economic, spatial, and institutional forces shaping cities through case studies in public infrastructure and large-scale redevelopment.</p>
+<p>Urban Perception and Cognitive Mapping: <a href="https://books.google.com/books?isbn=9780262620017" target="_blank" rel="noopener noreferrer">The Image of the City (Kevin Lynch)</a> - Establishes the foundational theory of urban legibility and cognitive mapping, categorizing the built environment into paths, edges, districts, nodes, and landmarks.</p>
+<p>Urban Field Methods and Morphological Analysis: <a href="https://ocw.mit.edu/courses/11-328j-urban-design-skills-observing-interpreting-and-representing-the-city-fall-2004" target="_blank" rel="noopener noreferrer">Urban Design Skills: Observing, Interpreting, and Representing the City (MIT OpenCourseWare)</a> - Instructs learners in fieldwork methods, street profile sectioning, block typology analysis, and urban infill design.</p>
+<p>Collective and Inclusive Housing Typologies: <a href="https://www.edx.org/learn/housing/delft-university-of-technology-global-housing-design" target="_blank" rel="noopener noreferrer">Global Housing Design (DelftX via edX)</a> - Investigates spatial clustering, incremental expansion strategies, and high-density residential design across diverse global socioeconomic contexts.</p>
+<h2 id="historic-preservation-and-adaptive-reuse">Historic Preservation and Adaptive Reuse</h2>
+<p>Methodologies, conservation philosophies, and technical standards for documenting, preserving, and repurposing existing structures.</p>
+<p>Preservation Standards and Regulatory Compliance: <a href="https://www.nps.gov/orgs/1739/training.htm" target="_blank" rel="noopener noreferrer">Technical Preservation Services Training (U.S. National Park Service)</a> - Comprehensive webinar modules on applying the Secretary of the Interior's Standards for Rehabilitation, substitute materials, and building code variances for historic structures.</p>
+<p>Preservation Theory and Documentation: <a href="https://books.google.com/books?isbn=9780393712971" target="_blank" rel="noopener noreferrer">Historic Preservation: An Introduction to Its History, Principles, and Practice (Norman Tyler, Ted J. Ligibel, and Ilene R. Tyler)</a> - Surveys preservation philosophies, landmark designations, historic district zoning, preservation technology, and material pathology.</p>
+<p>Building Adaptation Feasibility: <a href="https://ocw.tudelft.nl/courses/managing-building-adaptation-a-sustainable-approach/" target="_blank" rel="noopener noreferrer">Managing Building Adaptation: A Sustainable Approach (TU Delft OpenCourseWare)</a> - Delivers analytical tools to assess the structural, functional, and financial viability of transforming obsolete buildings into sustainable assets.</p>
+<p>Typological Strategies of Adaptive Reuse: <a href="https://books.google.com/books?isbn=9783035625639" target="_blank" rel="noopener noreferrer">Adaptive Reuse in Architecture: A Typological Index (Liliane Wong)</a> - Categorizes contemporary intervention strategies across 50 global case studies, formulating design frameworks for structural insertions within existing fabric.</p>
+<h2 id="advanced-building-envelope-and-structural-systems">Advanced Building Envelope and Structural Systems</h2>
+<p>The technical integration of complex lateral systems, long-span structural typologies, and high-performance building enclosures.</p>
+<p>Structural Morphology and Typological Classification: <a href="https://books.google.com/books?isbn=9783775718769" target="_blank" rel="noopener noreferrer">Structure Systems (Heino Engel)</a> - A comprehensive graphic taxonomy categorizing structural behavior into form-active, vector-active, section-active, and surface-active systems.</p>
+<p>High-Rise and Long-Span Systems: <a href="https://ocw.mit.edu/courses/4-463-building-technology-iii-building-structural-systems-fall-2004" target="_blank" rel="noopener noreferrer">Building Technology III: Building Structural Systems (MIT OpenCourseWare)</a> - Examines indeterminate structural behavior, shear walls, outrigger frameworks, and structural integration in high-rise and large-span buildings.</p>
+<p>Façade Engineering Principles: <a href="https://www.edx.org/learn/engineering/delft-university-of-technology-facade-design-and-engineering-complexity-made-simple" target="_blank" rel="noopener noreferrer">Façade Design and Engineering: Complexity Made Simple (DelftX via edX)</a> - Details the technical mechanics of building enclosures, addressing curtain wall systems, thermal bridges, tolerances, and weatherproofing barriers.</p>
+<p>Envelope Detailing and Assembly Systems: <a href="https://books.google.com/books?isbn=9783035617702" target="_blank" rel="noopener noreferrer">Modern Construction Envelopes (Andrew Watts)</a> - An exhaustive graphic reference manual covering the detailing, joint design, structural support, and material interfaces of modern glass, metal, masonry, and composite facades.</p>
+    </article>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>Projects</title>
+  <meta name="description" content="Projects curriculum by hocbigg.">
+  <meta name="author" content="hocbigg">
+
+  <link rel="canonical" href="https://hocbigg.github.io/architecture/projects.html">
+  <meta property="og:title" content="Projects">
+  <meta property="og:description" content="Projects curriculum by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/architecture/projects.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+
+  <style>
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: 60rem;
+  padding: 0 1rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Cú pháp hiện đại thay thế cho word-wrap */
+  overflow-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  transform: translateY(-150%);
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:has(img) {
+  text-decoration: none;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header .page-subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-header img {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  margin-inline: 0;
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/architecture/">Architecture</a></li>
+      <li><a href="/architecture/advanced_topics.html">Advanced Topics</a></li>
+      <li><a href="/architecture/projects.html">Projects</a></li>
+      <li><a href="https://github.com/hocbigg/architecture" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
+
+<h1 id="projects">Projects</h1>
+<blockquote>
+<p>"What I cannot create, I do not understand." — Richard Feynman</p>
+</blockquote>
+<ul>
+<li><a href="#conduct-your-own-architectural-precedent-studies">Architectural Precedent Studies</a></li>
+<li><a href="#produce-your-own-architectural-site-analyses">Architectural Site Analyses</a></li>
+<li><a href="#draft-your-own-architectural-floor-plans">Architectural Floor Plans</a></li>
+<li><a href="#build-your-own-architectural-scale-models">Architectural Scale Models</a></li>
+<li><a href="#draft-your-own-architectural-construction-details">Architectural Construction Details</a></li>
+<li><a href="#draw-your-own-architectural-perspective-sketches">Architectural Perspective Sketches</a></li>
+<li><a href="#assemble-your-own-architecture-portfolios">Architecture Portfolios</a></li>
+</ul>
+<h2 id="conduct-your-own-architectural-precedent-studies">Conduct your own architectural precedent studies</h2>
+<ul>
+<li><a href="https://www.firstinarchitecture.co.uk/architecture-precedent-study-and-analysis/" target="_blank" rel="noopener noreferrer">Architecture Precedent Study and Analysis (First In Architecture)</a> - A structured guide explaining how to deconstruct existing buildings, extract spatial and tectonic principles, and diagram geometric relationships.</li>
+<li><a href="https://www.toscaleblog.co.uk/blog/analysing-architecture-case-studies-for-beginners" target="_blank" rel="noopener noreferrer">How to Analyse Architecture Case Studies as a Beginner ((to)scale)</a> - A beginner-oriented walkthrough covering desktop research, project deconstruction, and translating lessons into your own design drivers.</li>
+<li><a href="https://www.archisoup.com/studio-guide/precedent-study-guide" target="_blank" rel="noopener noreferrer">Architecture Precedent Study Guide (ArchiSoup)</a> - A comprehensive methodology for selecting relevant architectural case studies, analyzing program and circulation, and translating observations into visual diagrams.</li>
+</ul>
+<h2 id="produce-your-own-architectural-site-analyses">Produce your own architectural site analyses</h2>
+<ul>
+<li><a href="https://www.firstinarchitecture.co.uk/architecture-site-analysis-guide/" target="_blank" rel="noopener noreferrer">Architecture Site Analysis Guide: Data Collection to Presentation (First In Architecture)</a> - A step-by-step walkthrough covering desktop research, on-site fieldwork, sun-path mapping, prevailing winds, and graphic synthesis.</li>
+<li><a href="https://monograph.com/blog/site-analysis-architecture" target="_blank" rel="noopener noreferrer">Guide to Site Analysis (Monograph)</a> - A professional-grade guide detailing the research, analysis, and synthesis phases of site context, zoning envelopes, and physical constraints.</li>
+<li>Architecture Site Analysis Guide: Techniques, Tools, and Tips (ArchiSoup) - Search "Architecture Site Analysis Guide: Techniques, Tools, and Tips" on archisoup.com. A practical methodology for documenting environmental forces, regulatory boundaries, and site diagrams.</li>
+</ul>
+<h2 id="draft-your-own-architectural-floor-plans">Draft your own architectural floor plans</h2>
+<ul>
+<li><a href="https://www.firstinarchitecture.co.uk/technical-drawing-plans/" target="_blank" rel="noopener noreferrer">Technical Drawing Plans (First In Architecture)</a> - A comprehensive guide covering standard floor plan drawing conventions, cut planes, wall thicknesses, door swings, annotations, and graphic symbols.</li>
+<li><a href="https://www.firstinarchitecture.co.uk/architectural-floor-plan-checklist/" target="_blank" rel="noopener noreferrer">Architectural Floor Plan Checklist (First In Architecture)</a> - A rigorous quality-control checklist and guide to verify room dimensions, structural openings, circulation paths, and drawing notations.</li>
+<li><a href="https://www.firstinarchitecture.co.uk/space-planning-basics/" target="_blank" rel="noopener noreferrer">Space Planning Basics: Introduction for Architectural Design (First In Architecture)</a> - A tutorial on translating client programmatic requirements into bubble diagrams, adjacency matrices, and resolved spatial layouts.</li>
+<li>Sketch to Finished Floor Plan: My Process, Graphics and Settings (30X40 Design Workshop) - Search "Sketch to Finished Floor Plan 30X40" on YouTube. An architect's video walkthrough moving from trace-paper concept sketches to a fully coordinated CAD floor plan.</li>
+</ul>
+<h2 id="build-your-own-architectural-scale-models">Build your own architectural scale models</h2>
+<ul>
+<li><a href="https://thirtybyforty.com/blog/architectural-model-making-tips" target="_blank" rel="noopener noreferrer">Architectural Model Making Tips (30X40 Design Workshop)</a> - A practitioner's manual covering material selection (basswood, chipboard, museum board), essential tools, cutting jigs, and clean assembly techniques.</li>
+<li><a href="https://howtorhino.com/blog/architecture-education/architectural-model-making" target="_blank" rel="noopener noreferrer">Architectural Model Making: Materials, Tools and Techniques (How to Rhino)</a> - A guide detailing scale selection, toolkits, and step-by-step assembly methods for study and presentation models.</li>
+<li>Architectural Model Making Techniques and Tutorial (30X40 Design Workshop) - Search "Architectural Model Making Techniques and Tutorial 30X40" on YouTube. A step-by-step physical model build showing how to construct a clean study model from scratch.</li>
+</ul>
+<h2 id="draft-your-own-architectural-construction-details">Draft your own architectural construction details</h2>
+<ul>
+<li><a href="https://www.firstinarchitecture.co.uk/technical-drawing-construction-drawings/" target="_blank" rel="noopener noreferrer">Technical Drawing: Construction Drawings (First In Architecture)</a> - A guide to assembling technical construction drawing packages, showing how assemblies, materials, and structural interfaces are documented.</li>
+<li><a href="https://www.lifeofanarchitect.com/architectural-graphics-101-drawing-alignment-and-notes/" target="_blank" rel="noopener noreferrer">Architectural Graphics 101: Drawing Alignment and Notes (Life of an Architect)</a> - A drafting guide on detail sheet composition, dimension placement, leader-line discipline, and drawing note alignment.</li>
+<li><a href="https://www.lifeofanarchitect.com/architectural-graphic-standards-part-2/" target="_blank" rel="noopener noreferrer">Architectural Graphic Standards: Part 2 (Life of an Architect)</a> - A detailed breakdown of large-scale (3" = 1'-0") detailing conventions, material hatching standards, and flashing assemblies.</li>
+<li><a href="https://www.firstinarchitecture.co.uk/how-to-get-better-at-architectural-detailing/" target="_blank" rel="noopener noreferrer">How to Get Better at Architectural Detailing (First In Architecture)</a> - A methodological guide on analyzing job-site construction, tracking moisture barriers, and drafting continuous thermal envelopes.</li>
+</ul>
+<h2 id="draw-your-own-architectural-perspective-sketches">Draw your own architectural perspective sketches</h2>
+<ul>
+<li><a href="https://www.lifeofanarchitect.com/architectural-sketching-or-how-to-sketch-like-me/" target="_blank" rel="noopener noreferrer">Architectural Sketching or How to Sketch Like Me (Life of an Architect)</a> - A practitioner's tutorial by architect Bob Borson on linework hierarchy, pencil techniques, and iterative trace-paper sketching.</li>
+<li><a href="https://www.lizsteel.com/my-approach-to-sketching-architecture/" target="_blank" rel="noopener noreferrer">My Approach to Sketching Architecture (Liz Steel)</a> - A structured method for drawing buildings by breaking down complex architecture into primary volumes, structural frameworks, depths, and shadows.</li>
+<li>7-Step Perspective Drawing: Architecture Design Concept Development (Sketch Like an Architect) - Search "7-Step Perspective Drawing Sketch Like an Architect" on sketchlikeanarchitect.com. A tutorial demonstrating how to construct a 2-point perspective grid, mass a building concept, and render depth with shadows.</li>
+</ul>
+<h2 id="assemble-your-own-architecture-portfolios">Assemble your own architecture portfolios</h2>
+<ul>
+<li><a href="https://youngarchitect.com/the-definitive-guide-to-an-epic-architecture-portfolio-part-i" target="_blank" rel="noopener noreferrer">The Definitive Guide to an Epic Architecture Portfolio: Part I (Young Architect)</a> - A foundational guide on identifying portfolio goals, defining your audience, and building a compelling personal design narrative.</li>
+<li><a href="https://youngarchitect.com/the-definitive-guide-to-an-epic-architecture-portfolio-part-ii" target="_blank" rel="noopener noreferrer">The Definitive Guide to an Epic Architecture Portfolio: Part II (Young Architect)</a> - A detailed guide covering content strategy, project selection, visual hierarchy, and composition grids.</li>
+<li><a href="https://youngarchitect.com/the-definitive-guide-to-an-epic-architecture-portfolio-part-iii" target="_blank" rel="noopener noreferrer">The Definitive Guide to an Epic Architecture Portfolio: Part III (Young Architect)</a> - A production walkthrough detailing formatting choices, print versus digital publishing, software workflows, and pre-flight checks.</li>
+</ul>
+    </article>
+  </main>
+
+</body>
+</html>

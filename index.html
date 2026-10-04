@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>Hocbigg - Architecture</title>
+  <meta name="description" content="Path to a free self-taught education in Architecture.">
+  <meta name="author" content="hocbigg">
+
+  <link rel="canonical" href="https://hocbigg.github.io/architecture/">
+  <meta property="og:title" content="Hocbigg - Architecture">
+  <meta property="og:description" content="Path to a free self-taught education in Architecture.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/architecture/">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+
+  <style>
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: 60rem;
+  padding: 0 1rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Cú pháp hiện đại thay thế cho word-wrap */
+  overflow-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  transform: translateY(-150%);
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:has(img) {
+  text-decoration: none;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header .page-subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-header img {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  margin-inline: 0;
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/architecture/">Architecture</a></li>
+      <li><a href="/architecture/advanced_topics.html">Advanced Topics</a></li>
+      <li><a href="/architecture/projects.html">Projects</a></li>
+      <li><a href="https://github.com/hocbigg/architecture" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
+<header class="page-header">
+  <img src="/images/logo.png" alt="Hocbigg logo">
+  <h1>Hocbigg - Architecture</h1>
+  <p class="page-subtitle">Path to a free self-taught education in Architecture.</p>
+  <p class="last-updated"><small>Last updated on: <time datetime="2026-09-21">2026-09-21</time></small></p>
+</header>
+<h2 id="introduction">Introduction</h2>
+<p>Architecture is the synthesis of spatial design, cultural history, and physical engineering. It is the discipline concerned with how human beings organize, construct, and experience three-dimensional space — from the intimate scale of a room to the civic scale of a public institution. Studying architecture independently sharpens visual literacy and spatial reasoning, giving you the tools to understand why the built environment looks the way it does, how buildings stand up, and how physical form influences human behavior.</p>
+<p>This curriculum is designed for absolute beginners with no prior background in design, drafting, or structural engineering. It requires no specialized software, studio access, or university enrollment. High school-level geometry and basic physical intuition are sufficient; the technical resources here prioritize conceptual clarity, visual diagrams, and physical behavior over dense mathematical derivation.</p>
+<p>The curriculum is organized into six foundational subjects arranged in two complementary phases:</p>
+<ul>
+<li><strong>Visual and Conceptual Foundations:</strong> Begin with <em>Architectural Design Fundamentals</em> and <em>Architectural Representation and Drawing</em>. These two subjects should ideally be studied together. The former establishes the spatial vocabulary of the discipline — form, proportion, axes, datum, and hierarchy — while the latter provides the drawing conventions (plans, sections, elevations, and axonometric projections) necessary to articulate and analyze those ideas on paper.</li>
+<li><strong>Precedent and Context:</strong> Move to <em>Architectural History and Survey</em> once you have a working grasp of architectural drawing. Studying historical precedents through the lens of architectural drawings allows you to analyze buildings as structural and spatial solutions to cultural, political, and material constraints rather than merely memorizing stylistic periods.</li>
+<li><strong>Physical and Technical Realization:</strong> Progress through the technical subjects in sequential order. Begin with <em>Structures</em> to understand how loads, tension, compression, and moments resolve through building forms. Follow this with <em>Building Construction and Materials</em>, where you will study how those structural forces are physically realized through concrete, steel, wood, and masonry assemblies. Conclude with <em>Environmental Systems</em>, which examines how passive orientation, daylighting, heat transfer, and acoustics govern interior comfort and energy performance.</li>
+</ul>
+<p>This page focuses strictly on the foundational core — the shared conceptual, graphic, and technical knowledge base expected of any undergraduate architectural student. It does not attempt to cover specialized professional tracks, specific CAD/BIM software tutorials, or legal licensing requirements.</p>
+<p>Once you have established this foundational grounding, you can branch out depending on your goals:</p>
+<ul>
+<li>Put theory into practice by producing physical models, technical drawing sets, and analytical drawings using the step-by-step guides in <a href="projects.html">Projects</a>.</li>
+<li>Explore specialized domains — such as computational design, facade engineering, mass timber, or urban housing — in <a href="advanced_topics.html">Advanced Topics</a>.</li>
+</ul>
+<h2 id="curriculum">Curriculum</h2>
+<h3 id="architectural-design-fundamentals">Architectural Design Fundamentals</h3>
+<p>The foundational principles of spatial organization, form, proportion, scale, and ordering systems that govern how architects conceptualize the built environment.</p>
+<p><a href="https://www.edx.org/learn/architecture/harvard-university-the-architectural-imagination" target="_blank" rel="noopener noreferrer">The Architectural Imagination (Harvard University via edX)</a> - A video-based introduction to design thinking and spatial ideas through historical analyses of exemplary buildings and guided drawing exercises, serving as the interactive entry point to the visual texts below.</p>
+<p><a href="https://books.google.com/books?isbn=9781118745083" target="_blank" rel="noopener noreferrer">Architecture: Form, Space, and Order (Francis D. K. Ching)</a> - The standard visual reference for architectural vocabulary; study alongside the Harvard course to understand how primary elements, planar organizations, and proportioning systems operate diagrammatically.</p>
+<p><a href="https://books.google.com/books?isbn=9780415489287" target="_blank" rel="noopener noreferrer">Analysing Architecture (Simon Unwin)</a> - A complementary analytical guide that builds on Ching's formal vocabulary by demonstrating how to deconstruct buildings and extract spatial strategies from real-world architecture.</p>
+<h3 id="architectural-representation-and-drawing">Architectural Representation and Drawing</h3>
+<p>The conventions and techniques of architectural visualization, encompassing orthographic projections, paraline drawings, perspective views, and freehand sketching.</p>
+<p><a href="https://books.google.com/books?isbn=9781119035664" target="_blank" rel="noopener noreferrer">Architectural Graphics (Francis D. K. Ching)</a> - The foundational manual covering technical drafting conventions, lineweight hierarchy, orthographic projection (plans, sections, elevations), axonometric views, and architectural lettering.</p>
+<p><a href="https://www.youtube.com/@30by40" target="_blank" rel="noopener noreferrer">30X40 Design Workshop (YouTube)</a> - A video-based studio companion to Ching's manual, demonstrating physical drawing workflows, line-drawing techniques, and freehand sketching methods on paper.</p>
+<h3 id="architectural-history-and-survey">Architectural History and Survey</h3>
+<p>A global survey of architectural development across cultures, eras, and technologies, tracing how social, political, and material factors have shaped the built environment over time.</p>
+<p><a href="https://books.google.com/books?isbn=9781118981603" target="_blank" rel="noopener noreferrer">A Global History of Architecture (Francis D. K. Ching, Mark M. Jarzombek, and Vikramaditya Prakash)</a> - The primary comprehensive survey text, organizing global architectural developments chronologically rather than focusing solely on the Western canon.</p>
+<p><a href="https://ocw.mit.edu/courses/4-605-introduction-to-the-history-and-theory-of-architecture-spring-2012" target="_blank" rel="noopener noreferrer">Introduction to the History and Theory of Architecture (MIT OpenCourseWare)</a> - A structured study guide built directly around the Ching/Jarzombek text above, providing lecture outlines, reading assignments, and comparative analytical essay prompts.</p>
+<p><a href="https://www.gutenberg.org/files/20239/20239-h/20239-h.htm" target="_blank" rel="noopener noreferrer">The Ten Books on Architecture (Vitruvius, translated by Morris Hicky Morgan) (Project Gutenberg)</a> - A foundational primary source from classical antiquity; read selectively alongside the survey materials above to examine early treatises on proportion, utility, and building methods.</p>
+<h3 id="structures">Structures</h3>
+<p>The physical and mechanical principles governing how forces and loads move through structural elements to achieve equilibrium and stability in buildings.</p>
+<p><a href="https://open.umn.edu/opentextbooks/textbooks/basic-concepts-of-structural-design-for-architecture-students" target="_blank" rel="noopener noreferrer">Basic Concepts of Structural Design for Architecture Students (Anahita Khodadadi, Portland State University via Open Textbook Library)</a> - An accessible open textbook covering structural loads, force vectors, equilibrium, and structural configurations with minimal mathematical complexity.</p>
+<p><a href="https://books.google.com/books?isbn=9780393306767" target="_blank" rel="noopener noreferrer">Why Buildings Stand Up: The Strength of Architecture (Mario Salvadori)</a> - A narrative and conceptual companion to Khodadadi's textbook, explaining how tension, compression, shear, beams, arches, and trusses function across famous historical and modern structures.</p>
+<h3 id="building-construction-and-materials">Building Construction and Materials</h3>
+<p>The assemblies, detailing methods, and material systems through which architectural designs are physically constructed and weatherproofed.</p>
+<p><a href="https://books.google.com/books?isbn=9781118458341" target="_blank" rel="noopener noreferrer">Building Construction Illustrated (Francis D. K. Ching)</a> - The core visual manual detailing building assemblies, foundation systems, envelope enclosures, and structural joinery through annotated technical drawings.</p>
+<p><a href="https://books.google.com/books?isbn=9781119446194" target="_blank" rel="noopener noreferrer">Fundamentals of Building Construction: Materials and Methods (Edward Allen and Joseph Iano)</a> - The comprehensive standard textbook that supplies the technical narrative, material properties, and job-site assembly methods corresponding to Ching's graphic details.</p>
+<p><a href="https://ocw.mit.edu/courses/4-461-building-technology-i-materials-and-construction-fall-2004" target="_blank" rel="noopener noreferrer">Building Technology I: Materials and Construction (MIT OpenCourseWare)</a> - A university-level syllabus offering lecture notes, structural morphology analyses, and quizzes to test your understanding of wood, steel, concrete, and masonry construction.</p>
+<h3 id="environmental-systems">Environmental Systems</h3>
+<p>The principles and technologies governing indoor comfort, solar orientation, passive heating and cooling, daylighting, and acoustics in architecture.</p>
+<p><a href="https://books.google.com/books?isbn=9781119585749" target="_blank" rel="noopener noreferrer">Heating, Cooling, Lighting: Sustainable Design Strategies Towards Net Zero Architecture (Norbert Lechner and Patricia Andrasik)</a> - The definitive design textbook on climate-responsive architecture, focusing on schematic-stage passive solar heating, natural ventilation, sun shading, and daylighting strategies.</p>
+<p><a href="https://ocw.mit.edu/courses/4-401-environmental-technologies-in-buildings-fall-2018" target="_blank" rel="noopener noreferrer">Environmental Technologies in Buildings (MIT OpenCourseWare)</a> - A rigorous course that builds on Lechner's passive strategies through lecture slides, physical performance calculations, and computational daylighting and energy simulations.</p>
+    </article>
+  </main>
+
+</body>
+</html>
